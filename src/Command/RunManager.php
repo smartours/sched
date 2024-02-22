@@ -18,7 +18,7 @@ class RunManager extends Command
 {
     use LoggingTrait;
 
-    protected static $defaultName = 'manager:run';
+    protected static string $defaultName = 'manager:run';
 
     /**
      * @Inject({"config": "sched-config"})
@@ -47,7 +47,7 @@ class RunManager extends Command
         $this->setHelp('Starts up the manager process');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $jobs = [];
 

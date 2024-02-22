@@ -15,7 +15,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GetQueueStats extends Command
 {
-    protected static $defaultName = 'queue:stats';
+    protected static string $defaultName = 'queue:stats';
 
     /**
      * @Inject({"config": "sched-config"})
@@ -44,7 +44,7 @@ class GetQueueStats extends Command
             ->addArgument('queueName', InputArgument::OPTIONAL, 'Queue to check');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var string */
         $queueName = $input->getArgument('queueName');

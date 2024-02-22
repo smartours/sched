@@ -19,7 +19,7 @@ class ForceProcessCron extends Command
 {
     use LoggingTrait;
 
-    protected static $defaultName = 'cron:force-process';
+    protected static string $defaultName = 'cron:force-process';
 
     /**
      * @Inject({"config": "sched-config"})
@@ -49,7 +49,7 @@ class ForceProcessCron extends Command
             ->addArgument('name', InputArgument::REQUIRED, 'Name of cron job to run');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $name = $input->getArgument('name');
 

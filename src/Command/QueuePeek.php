@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class QueuePeek extends Command
 {
-    protected static $defaultName = 'queue:peek';
+    protected static string $defaultName = 'queue:peek';
 
     public function __construct(
         protected QueueService $queueService
@@ -29,7 +29,7 @@ class QueuePeek extends Command
             ->addArgument('queueName', InputArgument::REQUIRED, 'Queue to check');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $queueName = $input->getArgument('queueName');
         $message = null;

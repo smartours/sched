@@ -180,7 +180,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class QueueFilesForProcessing extends Command
 {
-    protected static $defaultName = 'app:customcommand';
+    protected static string $defaultName = 'app:customcommand';
 
     protected function configure(): void
     {
@@ -188,7 +188,7 @@ class QueueFilesForProcessing extends Command
             ->setHelp('This is a sample command');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         // Do some stuff
         Return Command::SUCCESS;

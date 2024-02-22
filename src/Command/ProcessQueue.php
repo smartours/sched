@@ -20,7 +20,7 @@ class ProcessQueue extends Command
 {
     use LoggingTrait;
 
-    protected static $defaultName = 'queue:process';
+    protected static string $defaultName = 'queue:process';
 
     /**
      * @Inject({"config": "sched-config"})
@@ -52,7 +52,7 @@ class ProcessQueue extends Command
             ->addArgument('queueName', InputArgument::REQUIRED, 'Queue to process');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var string */
         $queueName = $input->getArgument('queueName');

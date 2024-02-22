@@ -15,7 +15,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class QueueAddJob extends Command
 {
-    protected static $defaultName = 'queue:add-job';
+    protected static string $defaultName = 'queue:add-job';
 
     public function __construct(
         protected QueueService $queueService
@@ -32,7 +32,7 @@ class QueueAddJob extends Command
             ->addArgument('payload', InputArgument::REQUIRED, 'String payload to add to queue');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $message = $this->queueService->sendMessage(
             queueName: $input->getArgument('queueName'),

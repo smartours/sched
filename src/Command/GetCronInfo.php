@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GetCronInfo extends Command
 {
-    protected static $defaultName = 'cron:info';
+    protected static string $defaultName = 'cron:info';
 
     /**
      * @Inject({"config": "sched-config"})
@@ -39,7 +39,7 @@ class GetCronInfo extends Command
             ->setHelp('Returns information about the queue');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $rows = [];
         $headers = [];

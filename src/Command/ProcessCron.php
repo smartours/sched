@@ -18,7 +18,7 @@ class ProcessCron extends Command
 {
     use LoggingTrait;
 
-    protected static $defaultName = 'cron:process';
+    protected static string $defaultName = 'cron:process';
 
     /**
      * @Inject({"config": "sched-config"})
@@ -47,7 +47,7 @@ class ProcessCron extends Command
             ->setHelp('Reads in the cron from config and runs anything that is due');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $verbose = $input->getOption('verbose');
         foreach ($this->config['cron'] as $cronJob) {

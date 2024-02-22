@@ -15,7 +15,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class QueueClear extends Command
 {
-    protected static $defaultName = 'queue:clear';
+    protected static string $defaultName = 'queue:clear';
 
     public function __construct(
         protected QueueService $queueService
@@ -30,7 +30,7 @@ class QueueClear extends Command
             ->addArgument('queueName', InputArgument::REQUIRED, 'Queue to check');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $queueName = $input->getArgument('queueName');
 
